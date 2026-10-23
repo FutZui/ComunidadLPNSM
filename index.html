@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comunidad de Discord</title>
+<meta name="description" content="Sumate a nuestra comunidad de Discord.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#140f2e; --ink2:#1e1745; --line:#3a2f78;
+  --paper:#f1edff; --muted:#b4abe0;
+  --blurple:#5865f2; --sun:#ffd23f;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--paper);font-family:var(--body);
+  line-height:1.6;min-height:100vh;overflow-x:hidden;
+}
+/* fondo: malla lenta + foco que sigue al puntero */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;
+  background:radial-gradient(60% 50% at 15% 10%,#2b1f78 0%,transparent 60%),
+             radial-gradient(50% 50% at 90% 80%,#3a1d6e 0%,transparent 60%),var(--ink);
+  animation:drift 22s ease-in-out infinite alternate;}
+.bg::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(380px circle at var(--mx,70%) var(--my,30%),rgba(88,101,242,.28),transparent 70%);}
+@keyframes drift{to{background-position:6% 4%,-4% -6%,0 0}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{padding:22px 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--paper)}
+.logo{width:44px;height:44px;border-radius:14px;background:var(--blurple);display:grid;place-items:center;
+  font:800 1.3rem var(--display);color:#fff;overflow:hidden;flex:none;box-shadow:0 6px 24px rgba(88,101,242,.5)}
+.logo img{width:100%;height:100%;object-fit:cover}
+.online{display:inline-flex;align-items:center;gap:8px;font-size:.92rem;color:var(--muted);
+  border:1px solid var(--line);padding:7px 14px;border-radius:99px}
+.dot{width:9px;height:9px;border-radius:50%;background:#43d17a;box-shadow:0 0 0 0 rgba(67,209,122,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(67,209,122,0)}100%{box-shadow:0 0 0 0 rgba(67,209,122,0)}}
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:56px 0 88px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,7vw,5.4rem);line-height:.98;letter-spacing:-.03em;
+  overflow-wrap:anywhere;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.lead{margin-top:24px;max-width:52ch;font-size:1.15rem;color:var(--muted);animation:rise .9s .12s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+
+.cta{display:inline-flex;margin-top:36px;align-items:center;justify-content:center;
+  background:var(--sun);color:var(--ink);font:800 1.15rem var(--display);letter-spacing:.02em;
+  padding:20px 38px;border-radius:18px;text-decoration:none;
+  box-shadow:0 8px 0 #c79a00,0 18px 40px rgba(255,210,63,.25);
+  transition:transform .15s,box-shadow .15s;animation:rise .9s .24s cubic-bezier(.2,.8,.2,1) both}
+.cta:hover{transform:translateY(3px);box-shadow:0 5px 0 #c79a00,0 12px 30px rgba(255,210,63,.3)}
+.cta:active{transform:translateY(8px);box-shadow:0 0 0 #c79a00}
+.cta:focus-visible,.brand:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+
+/* widget en marco inclinado */
+.widget-col{display:flex;justify-content:center;animation:rise .9s .36s cubic-bezier(.2,.8,.2,1) both}
+.frame{background:var(--ink2);border:1px solid var(--line);border-radius:24px;padding:14px;max-width:100%;
+  transform:rotate(1.6deg);transition:transform .35s;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.frame:hover{transform:rotate(0)}
+.frame iframe{display:block;max-width:100%;border-radius:12px}
+
+.about{padding:0 0 96px}
+.about h2{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-.02em;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.item{border-top:3px solid var(--blurple);padding-top:16px}
+.item:nth-child(2){border-color:var(--sun)}
+.item:nth-child(3){border-color:#43d17a}
+.item h3{font:700 1.15rem var(--display);margin-bottom:6px}
+.item p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:44px;padding-top:28px}
+  .grid{grid-template-columns:1fr}
+  .cta{width:100%}
+  .online span.txt-long{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><span class="logo" id="logo">?</span><span id="brandName">Comunidad</span></a>
+    <div class="online" id="onlineBox" hidden><span class="dot"></span><span><b id="onlineCount">0</b> <span class="txt-long">conectados ahora</span><span class="txt-short"></span></span></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1 id="title">Nuestra comunidad</h1>
+      <p class="lead" id="desc">Un lugar para charlar, jugar y compartir con gente que comparte tus intereses. Entrá, presentate y sumate a la conversación.</p>
+      <a class="cta" id="join" href="#" target="_blank" rel="noopener">UNIRSE A LA COMUNIDAD</a>
+      <p class="note">Es gratis y se abre directo en Discord.</p>
+    </div>
+    <div class="widget-col">
+      <div class="frame">
+        <iframe src="https://discord.com/widget?id=1051642050182914118&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>Qué vas a encontrar adentro</h2>
+    <div class="grid">
+      <div class="item"><h3>Charla todos los días</h3><p>Canales de texto y voz siempre con gente para conversar.</p></div>
+      <div class="item"><h3>Eventos y partidas</h3><p>Juntadas, torneos y actividades armadas por la comunidad.</p></div>
+      <div class="item"><h3>Ayuda y novedades</h3><p>Resolvé dudas y enterate primero de todo lo que pasa.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="year"></span> <span id="footName">Comunidad</span>. No afiliado a Discord Inc.</div></footer>
+
+<script>
+/* ====== EDITÁ SOLO ESTO ====== */
+const CONFIG = {
+  name: "",            // Dejalo vacío para usar el nombre real del servidor
+  description: "",     // Dejalo vacío para usar el texto por defecto
+  logoUrl: "",         // URL de tu logo (opcional). Vacío = inicial del nombre
+  invite: "https://discord.gg/PEGAR-INVITACION" // Reemplazá por tu invitación
+};
+/* ============================= */
+
+const GUILD_API = "https://discord.com/api/guilds/1051642050182914118/widget.json";
+const $ = id => document.getElementById(id);
+
+function setName(n){
+  $("title").textContent = n; $("brandName").textContent = n; $("footName").textContent = n;
+  document.title = n + " | Discord";
+  if(!CONFIG.logoUrl) $("logo").textContent = n.trim().charAt(0).toUpperCase() || "?";
+}
+function setInvite(u){ $("join").href = u; }
+
+$("year").textContent = new Date().getFullYear();
+if(CONFIG.description) $("desc").textContent = CONFIG.description;
+if(CONFIG.logoUrl){ const i = new Image(); i.alt = ""; i.src = CONFIG.logoUrl; $("logo").textContent = ""; $("logo").appendChild(i); }
+const hasInvite = !CONFIG.invite.includes("PEGAR");
+if(hasInvite) setInvite(CONFIG.invite);
+if(CONFIG.name) setName(CONFIG.name);
+
+// Datos en vivo desde el endpoint oficial del widget (nombre, conectados, invitación)
+fetch(GUILD_API).then(r => r.ok ? r.json() : Promise.reject()).then(d => {
+  if(!CONFIG.name && d.name) setName(d.name);
+  if(!hasInvite && d.instant_invite) setInvite(d.instant_invite);
+  if(typeof d.presence_count === "number"){
+    $("onlineCount").textContent = d.presence_count.toLocaleString("es-AR");
+    $("onlineBox").hidden = false;
+  }
+}).catch(() => { if(!CONFIG.name) setName("Nuestra comunidad"); });
+
+// Foco de luz que sigue al puntero
+addEventListener("pointermove", e => {
+  document.documentElement.style.setProperty("--mx", e.clientX + "px");
+  document.documentElement.style.setProperty("--my", e.clientY + "px");
+}, {passive:true});
+</script>
+</body>
+</html>
